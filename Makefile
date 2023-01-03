@@ -23,7 +23,8 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 
 CFLAGS+=`pkg-config --libs --cflags gtk+-2.0` 
-CFLAGS+= -ansi
+#CFLAGS+=`pkg-config --libs --cflags gtkglext-1.0` 
+CFLAGS+= -lglfw -lGL -lGLEW -Wall 
 # The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
